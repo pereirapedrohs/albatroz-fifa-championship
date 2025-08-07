@@ -5,7 +5,7 @@ import path from 'path'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/albatroz-fifa-championship/',
+  base: process.env.NODE_ENV === 'production' ? '/albatroz-fifa-championship/' : '/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
