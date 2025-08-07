@@ -4,13 +4,13 @@ import { getFirestore, doc, setDoc, getDoc, collection, addDoc, getDocs, updateD
 
 // Configuração do Firebase - SUBSTITUA PELOS SEUS DADOS
 const firebaseConfig = {
-  apiKey: "AIzaSyDgcocp2edfdOi9_St673fZNlNgP9VXlp8",
-  authDomain: "albatroz-fifa-championship.firebaseapp.com",
-  projectId: "albatroz-fifa-championship",
-  storageBucket: "albatroz-fifa-championship.firebasestorage.app",
-  messagingSenderId: "265788508154",
-  appId: "1:265788508154:web:4101bb9c899a0e17228643",
-  measurementId: "G-ECWT2HHRQB"
+  apiKey: "AIzaSyBN2wd0rWUi-PynD13XU1DiezkN3ndRj_c",
+  authDomain: "albatroz-fifa-championsh-e03c2.firebaseapp.com",
+  projectId: "albatroz-fifa-championsh-e03c2",
+  storageBucket: "albatroz-fifa-championsh-e03c2.firebasestorage.app",
+  messagingSenderId: "916196675175",
+  appId: "1:916196675175:web:b0f89a8c29fb33d7634ec2",
+  measurementId: "G-W1BNKDQB0Y"
 };
 
 // Inicializar Firebase
