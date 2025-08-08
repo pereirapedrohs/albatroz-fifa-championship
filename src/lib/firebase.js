@@ -57,4 +57,3 @@ export const getCollection = (collectionName, orderByField = null) => {
 
 export const setDocument = (collectionName, docId, data) => 
   setDoc(doc(db, collectionName, docId), data);
-
