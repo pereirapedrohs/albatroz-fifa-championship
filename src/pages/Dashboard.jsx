@@ -300,5 +300,50 @@ const Dashboard = () => {
   );
 };
 
+{/* Campeonatos Disponíveis para Entrar */}
+<Card className="mt-8">
+  <CardHeader>
+    <div className="flex justify-between items-center">
+      <CardTitle className="flex items-center gap-2">
+        <Trophy className="h-5 w-5" />
+        Campeonatos Disponíveis
+      </CardTitle>
+    </div>
+  </CardHeader>
+  <CardContent>
+    {championships.filter(c => !myChampionships.some(mc => mc.id === c.id) && c.status === 'criado').length === 0 ? (
+      <p className="text-center text-gray-500 py-8">Nenhum campeonato disponível no momento.</p>
+    ) : (
+      <div className="grid gap-4">
+        {championships
+          .filter(c => !myChampionships.some(mc => mc.id === c.id) && c.status === 'criado')
+          .map((championship) => (
+          <Link key={championship.id} to={`/championship/${championship.id}`}>
+            <div className="p-4 border rounded-lg hover:bg-gray-50 transition-colors">
+              <div className="flex justify-between items-start mb-2">
+                <div>
+                  <h3 className="font-medium text-lg">{championship.name}</h3>
+                  <div className="flex gap-2 mt-1">
+                    {getTypeBadge(championship.type)}
+                    {getStatusBadge(championship.status)}
+                  </div>
+                </div>
+                <div className="text-right text-sm text-gray-500">
+                  <p>{championship.participants?.length || 0}/{championship.maxPlayers} jogadores</p>
+                  <p>{new Date(championship.createdAt?.seconds * 1000).toLocaleDateString()}</p>
+                </div>
+              </div>
+              {championship.description && (
+                <p className="text-gray-600 text-sm">{championship.description}</p>
+              )}
+            </div>
+          </Link>
+        ))}
+      </div>
+    )}
+  </CardContent>
+</Card>
+
+
 export default Dashboard;
 

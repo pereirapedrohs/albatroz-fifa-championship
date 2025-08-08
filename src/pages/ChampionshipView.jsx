@@ -9,8 +9,10 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { generateLeagueMatches, generateCupBracket, calculateLeagueStandings, updateCupBracket, canAddPlayerToChampionship } from '../utils/championshipUtils';
 import { Trophy, Users, Calendar, Target, Medal, Crown } from 'lucide-react';
 import '../App.css';
+import { useParams } from 'react-router-dom';
 
-const ChampionshipView = ({ championshipId }) => {
+const ChampionshipView = () => {
+  const { championshipId } = useParams();
   const { user } = useAuth();
   const [championship, setChampionship] = useState(null);
   const [players, setPlayers] = useState([]);
