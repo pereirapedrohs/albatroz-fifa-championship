@@ -11,6 +11,21 @@ Este guia irá te ajudar a configurar e fazer o deploy do sistema de campeonatos
 
 ## 🚀 Passo a Passo Completo
 
+### ⚡ Execução rápida no localhost
+
+Se você só quer validar se o projeto está funcionando localmente, execute:
+
+```bash
+pnpm install
+pnpm run dev -- --host 0.0.0.0 --port 5173
+```
+
+Depois, abra no navegador:
+
+`http://localhost:5173`
+
+Para parar o servidor, pressione `Ctrl + C` no terminal.
+
 ### 1. Preparação do Ambiente
 
 #### 1.1 Verificar Node.js
@@ -228,4 +243,3 @@ Se encontrar problemas:
 ---
 
 **Boa sorte com seu campeonato! 🏆**
-
