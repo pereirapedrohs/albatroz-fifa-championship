@@ -10,7 +10,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { defaultRules, getRulesByCategory } from '../data/defaultRules';
+import { getRulesByCategory } from '../data/defaultRules';
 import { Settings, Plus, Edit, Trash2, BookOpen, Star } from 'lucide-react';
 import '../App.css';
 
@@ -91,7 +91,7 @@ const RulesManager = () => {
         required: false
       });
       fetchCustomRules();
-    } catch (error) {
+    } catch {
       setError('Erro ao criar regra. Tente novamente.');
     } finally {
       setLoading(false);
@@ -104,7 +104,7 @@ const RulesManager = () => {
         await deleteDocument('customRules', ruleId);
         setSuccess('Regra excluída com sucesso!');
         fetchCustomRules();
-      } catch (error) {
+      } catch {
         setError('Erro ao excluir regra.');
       }
     }
@@ -125,7 +125,7 @@ const RulesManager = () => {
         rules: championshipRules
       });
       setSuccess('Regras do campeonato salvas com sucesso!');
-    } catch (error) {
+    } catch {
       setError('Erro ao salvar regras do campeonato.');
     } finally {
       setLoading(false);

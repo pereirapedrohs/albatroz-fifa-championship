@@ -17,45 +17,18 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user);
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
       setLoading(false);
     });
 
     return unsubscribe;
   }, []);
 
-  const login = async (email, password) => {
-    try {
-      await signInWithEmail(email, password);
-    } catch (error) {
-      throw error;
-    }
-  };
-
-  const register = async (email, password) => {
-    try {
-      await signUpWithEmail(email, password);
-    } catch (error) {
-      throw error;
-    }
-  };
-
-  const loginWithGoogle = async () => {
-    try {
-      await signInWithGoogle();
-    } catch (error) {
-      throw error;
-    }
-  };
-
-  const logoutUser = async () => {
-    try {
-      await logout();
-    } catch (error) {
-      throw error;
-    }
-  };
+  const login = async (email, password) => signInWithEmail(email, password);
+  const register = async (email, password) => signUpWithEmail(email, password);
+  const loginWithGoogle = async () => signInWithGoogle();
+  const logoutUser = async () => logout();
 
   const value = {
     user,
@@ -72,4 +45,3 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
-
