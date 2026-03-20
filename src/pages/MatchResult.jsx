@@ -57,7 +57,7 @@ const MatchResult = ({ championshipId, matchId, onResultSaved }) => {
           }
         }
       }
-    } catch (error) {
+    } catch {
       setError('Erro ao carregar dados do jogo.');
     }
   };
@@ -127,7 +127,7 @@ const MatchResult = ({ championshipId, matchId, onResultSaved }) => {
       // Atualizar dados locais
       fetchMatchData();
       
-    } catch (error) {
+    } catch {
       setError('Erro ao salvar resultado. Tente novamente.');
     } finally {
       setLoading(false);

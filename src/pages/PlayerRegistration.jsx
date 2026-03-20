@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { db, setDocument, getDocument } from '../lib/firebase';
+import { setDocument, getDocument } from '../lib/firebase';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -62,7 +62,7 @@ const PlayerRegistration = () => {
         email: user.email
       });
       setSuccess('Cadastro realizado com sucesso!');
-    } catch (error) {
+    } catch {
       setError('Erro ao salvar os dados. Tente novamente.');
     } finally {
       setLoading(false);

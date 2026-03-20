@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { generateLeagueMatches, generateCupBracket, calculateLeagueStandings, updateCupBracket, canAddPlayerToChampionship } from '../utils/championshipUtils';
+import { generateLeagueMatches, generateCupBracket, calculateLeagueStandings, canAddPlayerToChampionship } from '../utils/championshipUtils';
 import { Trophy, Users, Calendar, Target, Medal, Crown } from 'lucide-react';
 import '../App.css';
 import { useParams } from 'react-router-dom';
@@ -44,7 +44,7 @@ const ChampionshipView = () => {
           setCupRounds(data.cupRounds || []);
         }
       }
-    } catch (error) {
+    } catch {
       setError('Erro ao carregar campeonato.');
     } finally {
       setLoading(false);
@@ -101,7 +101,7 @@ const ChampionshipView = () => {
         ...prev,
         participants: updatedParticipants
       }));
-    } catch (error) {
+    } catch {
       setError('Erro ao entrar no campeonato.');
     }
   };
@@ -129,7 +129,7 @@ const ChampionshipView = () => {
 
       await updateDocument('championships', championshipId, updatedData);
       setChampionship(prev => ({ ...prev, ...updatedData }));
-    } catch (error) {
+    } catch {
       setError('Erro ao iniciar campeonato.');
     }
   };

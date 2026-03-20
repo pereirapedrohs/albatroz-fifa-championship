@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { createDocument, getCollection, updateDocument, deleteDocument } from '../lib/firebase';
+import { createDocument, getCollection, deleteDocument } from '../lib/firebase';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -72,7 +72,7 @@ const ChampionshipManager = () => {
         status: 'criado'
       });
       fetchChampionships();
-    } catch (error) {
+    } catch {
       setError('Erro ao criar campeonato. Tente novamente.');
     } finally {
       setLoading(false);
@@ -85,7 +85,7 @@ const ChampionshipManager = () => {
         await deleteDocument('championships', championshipId);
         setSuccess('Campeonato excluído com sucesso!');
         fetchChampionships();
-      } catch (error) {
+      } catch {
         setError('Erro ao excluir campeonato.');
       }
     }
